@@ -66,6 +66,7 @@ const ListItems = ({ items, visible, onClick }) => (
 
 const Dashboard = withStyles(styles)(({ classes, auth }) => {
   const dispatch = useDispatch();
+  console.log("auth", auth);
 
   const history = useHistory();
   const [open, setOpen] = useState(false);
@@ -155,20 +156,25 @@ const Dashboard = withStyles(styles)(({ classes, auth }) => {
         <Grid item>
           <Drawer open={open} onClose={() => setOpen(false)}>
             <List>
-              <ListSubheader>
-                <Button
-                  disableRipple
-                  classes={{ root: classes.listSubheader }}
-                  onClick={toggleSection("ADMIN")}
-                >
-                  ADMIN
-                </Button>
-              </ListSubheader>
-              <ListItems
-                visible={sections.ADMIN}
-                items={items.ADMIN}
-                onClick={onClick}
-              />
+              {auth.is_staff ? (
+                <Fragment>
+                  <ListSubheader>
+                    <Button
+                      disableRipple
+                      classes={{ root: classes.listSubheader }}
+                      onClick={toggleSection("ADMIN")}
+                    >
+                      ADMIN
+                    </Button>
+                  </ListSubheader>
+                  <ListItems
+                    visible={sections.ADMIN}
+                    items={items.ADMIN}
+                    onClick={onClick}
+                  />
+                </Fragment>
+              ) : null}
+
               <ListSubheader>
                 <Button
                   disableRipple
@@ -183,7 +189,8 @@ const Dashboard = withStyles(styles)(({ classes, auth }) => {
                 items={items.CLIENTS}
                 onClick={onClick}
               />
-              <ListSubheader>
+            
+              {auth.is_pharmacist ? <Fragment>       <ListSubheader>
                 <Button
                   disableRipple
                   classes={{ root: classes.listSubheader }}
@@ -192,12 +199,13 @@ const Dashboard = withStyles(styles)(({ classes, auth }) => {
                   PHARMACISTS
                 </Button>
               </ListSubheader>
-              <ListItems
-                visible={sections.PHARMACISTS}
-                items={items.PHARMACISTS}
-                onClick={onClick}
-              />
-              <ListSubheader>
+                <ListItems
+                  visible={sections.PHARMACISTS}
+                  items={items.PHARMACISTS}
+                  onClick={onClick}
+                /></Fragment> : null}
+       
+       {auth.is_prescriber ? <Fragment> <ListSubheader>
                 <Button
                   disableRipple
                   classes={{ root: classes.listSubheader }}
@@ -210,7 +218,8 @@ const Dashboard = withStyles(styles)(({ classes, auth }) => {
                 visible={sections.PRESCRIBERS}
                 items={items.PRESCRIBERS}
                 onClick={onClick}
-              />
+              /></Fragment> : null}
+             
             </List>
           </Drawer>
         </Grid>

@@ -674,44 +674,6 @@ const Users = (props) => {
                                   errors.national_id
                                 }
                               />
-
-                              <TextField
-                                fullWidth
-                                margin="normal"
-                                variant="outlined"
-                                error={errors.password && touched.password}
-                                label="Password:"
-                                name="password"
-                                type="text"
-                                value={values.password}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                helperText={
-                                  errors.password &&
-                                  touched.password &&
-                                  errors.password
-                                }
-                              />
-                              <TextField
-                                fullWidth
-                                margin="normal"
-                                variant="outlined"
-                                error={
-                                  errors.confirm_password &&
-                                  touched.confirm_password
-                                }
-                                label="Confirm Password:"
-                                name="confirm_password"
-                                type="text"
-                                value={values.confirm_password}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                helperText={
-                                  errors.confirm_password &&
-                                  touched.confirm_password &&
-                                  errors.confirm_password
-                                }
-                              />
                               <Grid container justify="space-around">
                                 <Grid item>
                                   <FormControl
@@ -765,6 +727,44 @@ const Users = (props) => {
                                   </MuiPickersUtilsProvider>
                                 </Grid>
                               </Grid>
+
+                              <TextField
+                                fullWidth
+                                margin="normal"
+                                variant="outlined"
+                                error={errors.password && touched.password}
+                                label="Password:"
+                                name="password"
+                                type="text"
+                                value={values.password}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                helperText={
+                                  errors.password &&
+                                  touched.password &&
+                                  errors.password
+                                }
+                              />
+                              <TextField
+                                fullWidth
+                                margin="normal"
+                                variant="outlined"
+                                error={
+                                  errors.confirm_password &&
+                                  touched.confirm_password
+                                }
+                                label="Confirm Password:"
+                                name="confirm_password"
+                                type="text"
+                                value={values.confirm_password}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                helperText={
+                                  errors.confirm_password &&
+                                  touched.confirm_password &&
+                                  errors.confirm_password
+                                }
+                              />
 
                               <DialogActions>
                                 <Button

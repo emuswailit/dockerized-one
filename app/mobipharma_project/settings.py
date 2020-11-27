@@ -84,7 +84,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'frontend',
     'users',
-    # 'subscriptions',
+    'subscriptions',
     'entities',
     # 'drugs',
     # 'inventory',

@@ -21,7 +21,7 @@ urlpatterns = [
     path('', include('frontend.urls')),
     path('api/v1/auth/', include('rest_framework.urls')),
     path('api/v1/users/', include('users.urls')),
-    # path('api/v1/subscriptions/', include('subscriptions.urls')),
+    path('api/v1/subscriptions/', include('subscriptions.urls')),
     # path('api/v1/drugs/', include('drugs.urls')),
     # path('api/v1/entities/', include('entities.urls')),
     # path('api/v1/inventory/', include('inventory.urls')),

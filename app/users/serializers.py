@@ -4,6 +4,8 @@ from rest_framework import serializers
 from core.serializers import FacilitySafeSerializerMixin
 from entities.models import Pharmacist, Courier, Prescriber
 from entities.serializers import PharmacistSerializer, CourierSerializer, PrescriberSerializer
+from subscriptions.serializers import SubscriptionSerializer
+from subscriptions.models import Subscription
 
 from . import models
 
@@ -51,6 +53,8 @@ class AccountSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(FacilitySafeSerializerMixin, serializers.HyperlinkedModelSerializer):
+    subscription_details = serializers.SerializerMethodField(
+        read_only=True)
     account_details = serializers.SerializerMethodField(
         read_only=True)
     facility_details = serializers.SerializerMethodField(
@@ -91,6 +95,7 @@ class UserSerializer(FacilitySafeSerializerMixin, serializers.HyperlinkedModelSe
             'is_superintendent',
             'is_courier',
             'is_client',
+            'subscription_details',
             'facility_details',
             'account_details',
             'courier_details',
@@ -154,6 +159,11 @@ class UserSerializer(FacilitySafeSerializerMixin, serializers.HyperlinkedModelSe
             return FacilitySerializer(facility, context=self.context, many=True).data
         else:
             return []
+
+    def get_subscription_details(self, obj):
+        subscription = Subscription.objects.filter(
+            facility=obj.facility)
+        return SubscriptionSerializer(subscription, context=self.context, many=True).data
 
     def get_account_details(self, obj):
         account = models.Account.objects.get(owner=obj)

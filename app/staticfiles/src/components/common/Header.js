@@ -61,7 +61,7 @@ const Header = (props) => {
     if (isAuthenticated) {
       toDiaplay = (
         <Fragment>
-          <Dashboard />
+          <Dashboard auth={user} />
 
           <Switch>
             {/* <Route exact path="/" component={Dashboard} /> */}
