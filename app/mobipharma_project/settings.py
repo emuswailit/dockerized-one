@@ -86,12 +86,12 @@ INSTALLED_APPS = [
     'users',
     'subscriptions',
     'entities',
-    # 'drugs',
-    # 'inventory',
-    # 'consultations',
-    # 'clients',
-    # 'pharmacies',
-    # 'django_countries',
+    'drugs',
+    'inventory',
+    'consultations',
+    'clients',
+    'pharmacies',
+    'django_countries',
     'webpack_loader',
 
 ]

@@ -76,7 +76,17 @@ const Dashboard = withStyles(styles)(({ classes, auth }) => {
     ADMIN: [
       { label: "Users", Icon: AddIcon },
       { label: "Body Systems", Icon: RemoveIcon },
-      { label: "Usage", Icon: ShowChartIcon },
+      { label: "Drug Classes", Icon: ShowChartIcon },
+      { label: "Drug Sub Classes", Icon: ShowChartIcon },
+      { label: "Drug Formulations", Icon: ShowChartIcon },
+      { label: "Drug Generics", Icon: ShowChartIcon },
+      { label: "Drug Preparations", Icon: ShowChartIcon },
+      { label: "Drug Posologies", Icon: ShowChartIcon },
+      { label: "Drug Intake Frequencies", Icon: ShowChartIcon },
+      { label: "Drug Intake Instructions", Icon: ShowChartIcon },
+      { label: "Drug Products", Icon: ShowChartIcon },
+      { label: "Drug Manufacturers", Icon: ShowChartIcon },
+      { label: "Drug Distributors", Icon: ShowChartIcon },
     ],
     CLIENTS: [
       { label: "Add Memory", Icon: AddIcon },
@@ -189,37 +199,46 @@ const Dashboard = withStyles(styles)(({ classes, auth }) => {
                 items={items.CLIENTS}
                 onClick={onClick}
               />
-            
-              {auth.is_pharmacist ? <Fragment>       <ListSubheader>
-                <Button
-                  disableRipple
-                  classes={{ root: classes.listSubheader }}
-                  onClick={toggleSection("PHARMACISTS")}
-                >
-                  PHARMACISTS
-                </Button>
-              </ListSubheader>
-                <ListItems
-                  visible={sections.PHARMACISTS}
-                  items={items.PHARMACISTS}
-                  onClick={onClick}
-                /></Fragment> : null}
-       
-       {auth.is_prescriber ? <Fragment> <ListSubheader>
-                <Button
-                  disableRipple
-                  classes={{ root: classes.listSubheader }}
-                  onClick={toggleSection("PRESCRIBERS")}
-                >
-                  PRESCRIBERS
-                </Button>
-              </ListSubheader>
-              <ListItems
-                visible={sections.PRESCRIBERS}
-                items={items.PRESCRIBERS}
-                onClick={onClick}
-              /></Fragment> : null}
-             
+
+              {auth.is_pharmacist ? (
+                <Fragment>
+                  {" "}
+                  <ListSubheader>
+                    <Button
+                      disableRipple
+                      classes={{ root: classes.listSubheader }}
+                      onClick={toggleSection("PHARMACISTS")}
+                    >
+                      PHARMACISTS
+                    </Button>
+                  </ListSubheader>
+                  <ListItems
+                    visible={sections.PHARMACISTS}
+                    items={items.PHARMACISTS}
+                    onClick={onClick}
+                  />
+                </Fragment>
+              ) : null}
+
+              {auth.is_prescriber ? (
+                <Fragment>
+                  {" "}
+                  <ListSubheader>
+                    <Button
+                      disableRipple
+                      classes={{ root: classes.listSubheader }}
+                      onClick={toggleSection("PRESCRIBERS")}
+                    >
+                      PRESCRIBERS
+                    </Button>
+                  </ListSubheader>
+                  <ListItems
+                    visible={sections.PRESCRIBERS}
+                    items={items.PRESCRIBERS}
+                    onClick={onClick}
+                  />
+                </Fragment>
+              ) : null}
             </List>
           </Drawer>
         </Grid>

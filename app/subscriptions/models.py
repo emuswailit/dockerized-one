@@ -23,7 +23,7 @@ class Plan(models.Model):
     title = models.CharField(max_length=256, choices=PLAN_CHOICES, unique=True)
     description = models.TextField(null=True)
     price = models.DecimalField(decimal_places=2, max_digits=10)
-    owner = models.OneToOneField(
+    owner = models.ForeignKey(
         User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
