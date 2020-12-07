@@ -142,7 +142,7 @@ class DrugSubClassSerializer(serializers.ModelSerializer):
         return DrugClassSerializer(drug_class, context=self.context).data
 
 
-class GenericSerializer(serializers.HyperlinkedModelSerializer):
+class GenericSerializer(serializers.ModelSerializer):
     # owner_details = serializers.SerializerMethodField(read_only=True)
     drug_class_details = serializers.SerializerMethodField(read_only=True)
     drug_sub_class_details = serializers.SerializerMethodField(read_only=True)

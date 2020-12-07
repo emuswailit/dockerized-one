@@ -7,10 +7,10 @@ export const getGenerics = () => (dispatch, getState) => {
   axios
     .get("api/v1/drugs/generics", tokenConfig(getState))
     .then((res) => {
-      if (res.data.length > 0) {
+      if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
-            `${res.data.length} generics entries retrieved from database!`,
+            `${res.data.results.length} generics entries retrieved from database!`,
             "success"
           )
         );
@@ -21,7 +21,7 @@ export const getGenerics = () => (dispatch, getState) => {
       }
       dispatch({
         type: actionTypes.GET_GENERICS,
-        payload: res.data,
+        payload: res.data.results,
       });
     })
     .catch((err) => {
@@ -34,7 +34,7 @@ export const addGeneric = (generic) => (dispatch, getState) => {
   axios
     .post("api/v1/drugs/generics/create", generic, tokenConfig(getState))
     .then((res) => {
-      console.log("res", res);
+      console.log("create generic", res);
       dispatch(
         showSnackbarMessage(
           "Generic successfully added!",

@@ -109,7 +109,7 @@ const headCells = [
     label: "Description",
   },
   { id: "system", numeric: false, disablePadding: false, label: "Body System" },
-  { id: "owner", numeric: false, disablePadding: false, label: "Created By" },
+  // { id: "owner", numeric: false, disablePadding: false, label: "Created By" },
   { id: "actions", numeric: false, disablePadding: false, label: "Actions" },
 ];
 
@@ -417,7 +417,7 @@ const DrugClasses = (props) => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer>
           <Paper className={classes.root}>
             <Table dense table size="small">
@@ -485,7 +485,7 @@ const DrugClasses = (props) => {
                         console.log("drug class to save", values);
 
                         props.addDrugClass(values);
-                        setSubmitionCompleted(props.submissionSuccessful);
+                        // setSubmitionCompleted(props.submissionSuccessful);
                         setOpenErrorSnackBar(true);
                       }}
                       validationSchema={Yup.object().shape({
@@ -809,10 +809,10 @@ const DrugClasses = (props) => {
                       <TableCell align="left">
                         {row.system_details.title}
                       </TableCell>
-                      <TableCell align="left">
+                      {/* <TableCell align="left">
                         {row.owner_details.first_name}{" "}
                         {row.owner_details.last_name}
-                      </TableCell>
+                      </TableCell> */}
 
                       <TableCell>
                         <IconButton

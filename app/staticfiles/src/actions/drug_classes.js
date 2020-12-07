@@ -7,6 +7,7 @@ export const getDrugClasses = () => (dispatch, getState) => {
   axios
     .get("api/v1/drugs/drug-classes", tokenConfig(getState))
     .then((res) => {
+      console.log("drug_classes", res);
       if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
@@ -45,7 +46,7 @@ export const addDrugClass = (drugclass) => (dispatch, getState) => {
       );
       dispatch({
         type: actionTypes.ADD_DRUG_CLASS,
-        payload: res.data.results.drug_class,
+        payload: res.data.drug_class,
         submissionSuccessful: true,
       });
     })

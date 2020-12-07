@@ -7,10 +7,10 @@ export const getDrugSubClasses = () => (dispatch, getState) => {
   axios
     .get("api/v1/drugs/drug-sub-classes", tokenConfig(getState))
     .then((res) => {
-      if (res.data.length > 0) {
+      if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
-            `${res.data.length} drug sub class entries retrieved from database!`,
+            `${res.data.results.length} drug sub class entries retrieved from database!`,
             "success"
           )
         );
@@ -24,7 +24,7 @@ export const getDrugSubClasses = () => (dispatch, getState) => {
       }
       dispatch({
         type: actionTypes.GET_DRUG_SUB_CLASSES,
-        payload: res.data,
+        payload: res.data.results,
       });
     })
     .catch((err) => {

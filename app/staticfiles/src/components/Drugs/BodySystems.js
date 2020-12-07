@@ -219,8 +219,6 @@ const EnhancedTableToolbar = (props) => {
           Body Systems
         </Typography>
       )}
-
- 
     </Toolbar>
   );
 };

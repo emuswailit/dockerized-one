@@ -7,7 +7,7 @@ export const getBodySystems = () => (dispatch, getState) => {
   axios
     .get("api/v1/drugs/body-systems", tokenConfig(getState))
     .then((res) => {
-     
+      console.log("results", res);
       if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
@@ -46,11 +46,11 @@ export const addBodySystem = (bodysystem) => (dispatch, getState) => {
       );
       dispatch({
         type: actionTypes.ADD_BODY_SYSTEM,
-        payload: res.data.results.body_system,
-        submissionSuccessful: true,
+        payload: res.data.body_system,
       });
     })
     .catch((err) => {
+      console.log("errr", err);
       dispatch(showSnackbarMessage("err.response.data.message", "error"));
     });
 };

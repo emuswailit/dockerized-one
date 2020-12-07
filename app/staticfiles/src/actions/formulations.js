@@ -7,10 +7,11 @@ export const getFormulations = () => (dispatch, getState) => {
   axios
     .get("api/v1/drugs/formulations", tokenConfig(getState))
     .then((res) => {
-      if (res.data.length > 0) {
+      console.log("formulations", res);
+      if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
-            `${res.data.length} formulations entries retrieved from database!`,
+            `${res.data.results.length} formulations entries retrieved from database!`,
             "success",
             true,
             true
@@ -26,7 +27,7 @@ export const getFormulations = () => (dispatch, getState) => {
       }
       dispatch({
         type: actionTypes.GET_FORMULATIONS,
-        payload: res.data,
+        payload: res.data.results,
       });
     })
     .catch((err) => {

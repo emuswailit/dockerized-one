@@ -118,6 +118,28 @@ const Dashboard = withStyles(styles)(({ classes, auth }) => {
     if (content == "Body Systems") {
       history.push("/body_systems");
     }
+
+    if (content == "Drug Classes") {
+      history.push("/drug_classes");
+    }
+
+    if (content == "Drug Sub Classes") {
+      history.push("/sub_classes");
+    }
+    if (content == "Drug Formulations") {
+      history.push("/formulations");
+    }
+
+    if (content == "Drug Generics") {
+      history.push("/generics");
+    }
+
+    if (content == "Drug Preparations") {
+      history.push("/preparations");
+    }
+    if (content == "") {
+      history.push("/");
+    }
   };
   const toggleDrawer = () => {
     setOpen(!open);
