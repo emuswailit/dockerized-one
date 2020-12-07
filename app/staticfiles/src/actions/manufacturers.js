@@ -7,10 +7,10 @@ export const getManufacturers = () => (dispatch, getState) => {
   axios
     .get("api/v1/drugs/manufacturers", tokenConfig(getState))
     .then((res) => {
-      if (res.data.length > 0) {
+      if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
-            `${res.data.length} manufacturer entries retrieved from database!`,
+            `${res.data.results.length} manufacturer entries retrieved from database!`,
             "success"
           )
         );
@@ -24,7 +24,7 @@ export const getManufacturers = () => (dispatch, getState) => {
       }
       dispatch({
         type: actionTypes.GET_MANUFACTURERS,
-        payload: res.data,
+        payload: res.data.results,
       });
     })
     .catch((err) => {
@@ -52,7 +52,7 @@ export const addManufacturer = (manufacturer) => (dispatch, getState) => {
       );
       dispatch({
         type: actionTypes.ADD_MANUFACTURER,
-        payload: res.data.drug_class,
+        payload: res.data.manufacturer,
         submissionSuccessful: true,
       });
     })

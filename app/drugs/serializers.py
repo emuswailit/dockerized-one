@@ -272,7 +272,7 @@ class ManufacturerSerializer(CustomCountryMixin, serializers.HyperlinkedModelSer
         fields = ('id', 'url', 'title', 'country', 'owner',
                   )
 
-        read_only_fields = ('id', 'url',  'owner', 'country')
+        read_only_fields = ('id', 'url',  'owner',)
 
     # def get_owner_details(self, obj):
     #     owner = User.objects.get(id=obj.owner.id)
@@ -369,7 +369,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Product
         fields = ('id', 'url', 'title', 'preparation', 'manufacturer',
-                  'description', 'owner', 'units_per_pack' 'preparation_details', 'manufacturer_details', 'active', 'created', 'updated')
+                  'description', 'owner', 'units_per_pack', 'preparation_details', 'manufacturer_details', 'active', 'created', 'updated')
 
         read_only_fields = ('id', 'url',
                             'owner',

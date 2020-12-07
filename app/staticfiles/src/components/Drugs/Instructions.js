@@ -105,7 +105,7 @@ const headCells = [
     disablePadding: false,
     label: "Description",
   },
-  { id: "owner", numeric: false, disablePadding: false, label: "Created By" },
+  // { id: "owner", numeric: false, disablePadding: false, label: "Created By" },
   { id: "actions", numeric: false, disablePadding: false, label: "Actions" },
 ];
 
@@ -419,7 +419,7 @@ const Instructions = (props) => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer>
           <Paper className={classes.root}>
             <Table dense table size="small">
@@ -744,10 +744,10 @@ const Instructions = (props) => {
                         {row.title}
                       </TableCell>
                       <TableCell align="left">{row.description}</TableCell>
-                      <TableCell align="left">
+                      {/* <TableCell align="left">
                         {row.owner_details.first_name}
                         {row.owner_details.last_name}
-                      </TableCell>
+                      </TableCell> */}
 
                       <TableCell>
                         <IconButton

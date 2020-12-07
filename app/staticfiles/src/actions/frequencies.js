@@ -8,10 +8,10 @@ export const getFrequencies = () => (dispatch, getState) => {
     .get("api/v1/drugs/frequencies", tokenConfig(getState))
     .then((res) => {
       console.log("res data", res.data);
-      if (res.data.length > 0) {
+      if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
-            `${res.data.length} frequencies entries retrieved from database!`,
+            `${res.data.results.length} frequencies entries retrieved from database!`,
             "success",
             true,
             true
@@ -24,7 +24,7 @@ export const getFrequencies = () => (dispatch, getState) => {
       }
       dispatch({
         type: actionTypes.GET_FREQUENCIES,
-        payload: res.data,
+        payload: res.data.results,
       });
     })
     .catch((err) => {

@@ -7,10 +7,10 @@ export const getPreparations = () => (dispatch, getState) => {
   axios
     .get("api/v1/drugs/preparations", tokenConfig(getState))
     .then((res) => {
-      if (res.data.length > 0) {
+      if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
-            `${res.data.length} preparation entries retrieved from database!`,
+            `${res.data.results.length} preparation entries retrieved from database!`,
             "success"
           )
         );
@@ -24,7 +24,7 @@ export const getPreparations = () => (dispatch, getState) => {
       }
       dispatch({
         type: actionTypes.GET_PREPARATIONS,
-        payload: res.data,
+        payload: res.data.results,
       });
     })
     .catch((err) => {

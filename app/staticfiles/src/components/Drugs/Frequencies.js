@@ -123,7 +123,7 @@ const headCells = [
     disablePadding: false,
     label: "Description",
   },
-  { id: "owner", numerical: false, disablePadding: false, label: "Created By" },
+  // { id: "owner", numerical: false, disablePadding: false, label: "Created By" },
   { id: "actions", numerical: false, disablePadding: false, label: "Actions" },
 ];
 
@@ -447,7 +447,7 @@ const Frequencies = (props) => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer>
           <Paper className={classes.root}>
             <Table dense table size="small">
@@ -902,10 +902,10 @@ const Frequencies = (props) => {
                       <TableCell align="left">{row.abbreviation}</TableCell>
                       <TableCell align="right">{row.numerical}</TableCell>
                       <TableCell align="left">{row.description}</TableCell>
-                      <TableCell align="left">
+                      {/* <TableCell align="left">
                         {row.owner_details.first_name}{" "}
                         {row.owner_details.last_name}
-                      </TableCell>
+                      </TableCell> */}
 
                       <TableCell>
                         <IconButton

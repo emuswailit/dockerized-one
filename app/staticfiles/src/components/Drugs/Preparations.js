@@ -114,7 +114,7 @@ const headCells = [
     disablePadding: false,
     label: "Formulation",
   },
-  { id: "owner", numeric: false, disablePadding: false, label: "Created By" },
+  // { id: "owner", numeric: false, disablePadding: false, label: "Created By" },
   { id: "actions", numeric: false, disablePadding: false, label: "Actions" },
 ];
 
@@ -435,7 +435,7 @@ const DrugClasses = (props) => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer>
           <Paper className={classes.root}>
             <Table dense table size="small">
@@ -918,10 +918,10 @@ const DrugClasses = (props) => {
                         {row.formulation_details.title}
                       </TableCell>
 
-                      <TableCell align="left">
+                      {/* <TableCell align="left">
                         {row.owner_details.first_name}{" "}
                         {row.owner_details.last_name}
-                      </TableCell>
+                      </TableCell> */}
 
                       <TableCell>
                         <IconButton

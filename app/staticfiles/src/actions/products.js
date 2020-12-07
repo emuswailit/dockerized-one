@@ -7,10 +7,11 @@ export const getProducts = () => (dispatch, getState) => {
   axios
     .get("api/v1/drugs/products", tokenConfig(getState))
     .then((res) => {
-      if (res.data.length > 0) {
+      console.log("products", res);
+      if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
-            `${res.data.length} products entries retrieved from database!`,
+            `${res.data.results.length} products entries retrieved from database!`,
             "success"
           )
         );
@@ -21,7 +22,7 @@ export const getProducts = () => (dispatch, getState) => {
       }
       dispatch({
         type: actionTypes.GET_PRODUCTS,
-        payload: res.data,
+        payload: res.data.results,
       });
     })
     .catch((err) => {

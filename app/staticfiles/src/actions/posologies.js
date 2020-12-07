@@ -8,10 +8,10 @@ export const getPosologies = () => (dispatch, getState) => {
     .get("api/v1/drugs/posologies", tokenConfig(getState))
     .then((res) => {
       console.log("res data", res.data);
-      if (res.data.length > 0) {
+      if (res.data.results.length > 0) {
         dispatch(
           showSnackbarMessage(
-            `${res.data.length} posologies entries retrieved from database!`,
+            `${res.data.results.length} posologies entries retrieved from database!`,
             "success",
             true,
             true
@@ -24,7 +24,7 @@ export const getPosologies = () => (dispatch, getState) => {
       }
       dispatch({
         type: actionTypes.GET_POSOLOGIES,
-        payload: res.data,
+        payload: res.data.results,
       });
     })
     .catch((err) => {

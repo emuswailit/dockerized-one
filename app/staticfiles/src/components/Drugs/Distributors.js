@@ -324,9 +324,8 @@ const Distributors = (props) => {
   }, [url, rowsPerPage]);
 
   useEffect(() => {
-  
     setEditingDistributor(false); //Close the editing modal
-    setCreatingDistributor(false);// Close the create modal
+    setCreatingDistributor(false); // Close the create modal
   }, [props.update]);
 
   useEffect(() => {
@@ -455,7 +454,7 @@ const Distributors = (props) => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer>
           <Paper className={classes.root}>
             <Table dense table size="small">

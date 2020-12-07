@@ -137,6 +137,30 @@ const Dashboard = withStyles(styles)(({ classes, auth }) => {
     if (content == "Drug Preparations") {
       history.push("/preparations");
     }
+
+    if (content == "Drug Posologies") {
+      history.push("/posologies");
+    }
+
+    if (content == "Drug Intake Frequencies") {
+      history.push("/frequencies");
+    }
+
+    if (content == "Drug Intake Instructions") {
+      history.push("/instructions");
+    }
+
+    if (content == "Drug Manufacturers") {
+      history.push("/manufacturers");
+    }
+
+    if (content == "Drug Distributors") {
+      history.push("/distributors");
+    }
+
+    if (content == "Drug Products") {
+      history.push("/products");
+    }
     if (content == "") {
       history.push("/");
     }

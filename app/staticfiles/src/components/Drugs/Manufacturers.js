@@ -113,7 +113,7 @@ const headCells = [
     label: "Country",
   },
 
-  { id: "owner", numeric: false, disablePadding: false, label: "Created By" },
+  // { id: "owner", numeric: false, disablePadding: false, label: "Created By" },
   { id: "actions", numeric: false, disablePadding: false, label: "Actions" },
 ];
 
@@ -418,7 +418,7 @@ const DrugClasses = (props) => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
         <TableContainer>
           <Paper className={classes.root}>
             <Table dense table size="small">
